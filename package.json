@@ -1,0 +1,30 @@
+{
+  "name": "expressApp",
+  "version": "1.0.0",
+  "description": "## Rest API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iulianSta/expressApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iulianSta/expressApp/issues"
+  },
+  "homepage": "https://github.com/iulianSta/expressApp#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
