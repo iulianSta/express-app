@@ -21,3 +21,7 @@ const getUser = async (req, res, next) => {
   res.user = user;
   next();
 };
+
+module.exports = {
+  getUser,
+};
