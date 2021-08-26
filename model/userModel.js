@@ -23,7 +23,7 @@ const userDataSchema = new mongoose.Schema({
     // Trim empty spaces from the begining and the end
     trim: true,
     // Transform to number
-    parseInt: true,
+    // parseInt: true,
     //required: true,
     required: [true, "Please add your age"],
   },
@@ -32,7 +32,7 @@ const userDataSchema = new mongoose.Schema({
     // Trim empty spaces from the begining and the end
     trim: true,
     // Transform to number
-    parseInt: true,
+    // parseInt: true,
     //required: true,
     required: [true, "Please add your fbw organisation number"],
   },
