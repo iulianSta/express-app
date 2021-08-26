@@ -6,8 +6,6 @@ const express = require("express");
 const getUser = async (req, res, next) => {
   let user;
   try {
-    // user = await EmployeesData.findById(req.params.id);
-    // user = await EmployeesData.find({ name: req.params.name });
     user = await UserData.findOne({ userName: req.params.userName });
     console.log(user);
     if (user == null) {
