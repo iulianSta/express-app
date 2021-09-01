@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
-const userMdd = require("../middleware/");
+const userMiddleware = require("../middleware/");
 
-const { getUser, userNameCapitalized, toolStackArrSort, strToNum } =
-  userMiddleware;
+// const { getUser, userNameCapitalized, toolStackArrSort, strToNum } =
+//   userMiddleware;
 
 // GET one user
 // URL  http://localhost:5000/display/:name
@@ -12,10 +12,10 @@ const { getUser, userNameCapitalized, toolStackArrSort, strToNum } =
 router
   .route("/:name")
   .get(
-    getUser,
-    userNameCapitalized,
-    toolStackArrSort,
-    strToNum,
+    userMiddleware.getUser,
+    userMiddleware.userNameCapitalized,
+    userMiddleware.toolStackArrSort,
+    userMiddleware.strToNum,
     userController.displayUser
   );
 

@@ -9,6 +9,10 @@ app.use(express.json());
 
 // http:localhost:5000/user
 const userRouter = require("./router/user");
+app.use("/user", userRouter);
+
+// http:localhost:5000/display
+const displayRouter = require("./router/display");
 app.use("/display", displayRouter);
 
 // monogDB conection
