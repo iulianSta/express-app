@@ -3,9 +3,9 @@ const userDataSchema = new mongoose.Schema({
   userName: {
     type: String,
     // Trim empty spaces from the begining and the end
-    trim: true,
-    // Lowercase characters
-    toLowerCase: true,
+    // trim: true,
+    // // Lowercase characters
+    // toLowerCase: true,
     // Required
     required: [true, "Please add your username"],
     // Unique username
@@ -14,14 +14,14 @@ const userDataSchema = new mongoose.Schema({
   userPass: {
     type: String,
     // Trim empty spaces from the begining and the end
-    trim: true,
+    // trim: true,
     // Required
     required: [true, "Please add your password"],
   },
   age: {
     type: String,
     // Trim empty spaces from the begining and the end
-    trim: true,
+    // trim: true,
     // Transform to number
     // parseInt: true,
     //required: true,
@@ -48,9 +48,9 @@ const userDataSchema = new mongoose.Schema({
 
   userAddedDate: {
     type: Date,
-    required: true,
+    // required: true,
     default: Date.now,
   },
 });
 // create new collection
-module.exports = mongoose.model("userData", userDataSchema);
+module.exports = mongoose.model("userDataCollection", userDataSchema);
