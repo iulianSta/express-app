@@ -7,21 +7,26 @@ app.use(morgan("dev"));
 // to process the json data
 app.use(express.json());
 
-// monogDB
+// http:localhost:5000/user
+const userRouter = require("./router/user");
+app.use("/display", displayRouter);
+
+// monogDB conection
 const mongoose = require("mongoose");
 const DB_URL = process.env.DB_URL;
 mongoose
   .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(console.log("Database is connected!"))
-  .catch((error) => {
-    console.log(`Ups... there was a problem: ${error.message}`);
+  .catch((err) => {
+    console.log(`Ups... there was a problem: ${err.message}`);
   });
-// http:localhost:5000/user
-const user = require("./router/user");
-app.use("/user", user);
 
 app.get("/", (req, res) => {
-  res.status(200).send("Welcome to my App!");
+  try {
+    res.status(200).send("Welcome to my App!");
+  } catch (err) {
+    res.status(err.status).json(err.message);
+  }
 });
 
 module.exports = app;
