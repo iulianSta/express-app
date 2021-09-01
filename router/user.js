@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require("../controller/userController");
 const userMiddleware = require("../middleware/");
 
-const { checkUserData, checkAge, checkFbW, getUser } = userMiddleware;
+const { checkUserData, checkAge, checkFbw, getUser } = userMiddleware;
 
 // Root Route
 // GET all users , POST check user data, age and organization (fbw) and add new user
@@ -11,7 +11,7 @@ const { checkUserData, checkAge, checkFbW, getUser } = userMiddleware;
 router
   .route("/")
   .get(userController.getAllUsers)
-  .post(checkUserData, checkAge, checkFbW, userController.addNewUser);
+  .post(checkUserData, checkAge, checkFbw, userController.addNewUser);
 
 // URL http://localhost:5000/user/:name
 

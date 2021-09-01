@@ -3,13 +3,8 @@ const router = express.Router();
 const userController = require("../controller/userController");
 const userMdd = require("../middleware/");
 
-const {
-  getUser,
-  userNameCapitalized,
-  toolStackArrSort,
-  strToNum,
-  displayUser,
-} = userMiddleware;
+const { getUser, userNameCapitalized, toolStackArrSort, strToNum } =
+  userMiddleware;
 
 // GET one user
 // URL  http://localhost:5000/display/:name
