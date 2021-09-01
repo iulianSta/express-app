@@ -1,26 +1,24 @@
 const express = require("express");
 const router = express.Router();
-const userData = require("../model/userModel");
-const {
-  getUser,
-  getAllUsers,
-  //   getAdd,
-  addNewUser,
-  getOneUser,
-  updateOneUser,
-  deleteOneUser,
-  updateAllUserData,
-  //   updateManyUsers,
-} = require("../controllers/userController");
+const userController = require("../controller/userController");
+const userMiddleware = require("../middleware/");
+
+const { checkUserData, checkAge, checkFbW, getUser } = userMiddleware;
 
 // Root Route
-// GET all users , POST new user
-router.route("/").get(getAllUsers).post(addNewUser);
+// GET all users , POST check user data, age and organization (fbw) and add new user
 
-// Route with name value
+router
+  .route("/")
+  .get(userController.getAllUsers)
+  .post(checkUserData, checkAge, checkFbW, userController.addNewUser);
+
+// URL http://localhost:5000/user/:name
+
 router
   .route("/:name")
-  .get(getUser, getOneUser)
-  .patch(getUser, updateOneUser)
-  .put(getUser, updateAllUserData)
-  .delete(getUser, deleteOneUser);
+  .put(getUser, userController.updateUserData)
+  .patch(getUser, userController.patchUserData);
+
+// Export router
+module.exports = router;
